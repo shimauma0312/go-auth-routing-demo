@@ -21,7 +21,7 @@ func (app *App) homeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = t.ExecuteTemplate(w, tmp.Home, nil)
+	err = t.ExecuteTemplate(w, tmp.Home, data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
