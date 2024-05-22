@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <style>
+        @keyframes slide-in {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+        .welcome {
+            animation: slide-in 1s ease-in-out;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+        .header button {
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome">
+        <h1>ようこそ</h1>
+    </div>
+    <div class="header">
+        <button onclick="goHome()">ホームに戻る</button>
+        <button onclick="signOut()">サインアウト</button>
+    </div>
+
+    <script>
+        function goHome() {
+            // Add your logic to navigate to the home screen
+        }
+
+        function signOut() {
+            // Add your logic to sign out the user
+        }
+    </script>
+</body>
+</html>
