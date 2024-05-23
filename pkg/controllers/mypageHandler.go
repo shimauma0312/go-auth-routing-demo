@@ -16,6 +16,10 @@ func (app *App) mypageHandler(w http.ResponseWriter, r *http.Request) {
 		IsSignIn: app.IsUserLoggedIn(r),
 		UserId:   sessions.Values["id"].(string),
 	}
+	if !data.IsSignIn {
+		http.Redirect(w, r, "/signin", http.StatusFound)
+		return
+	}
 
 	t, err := template.ParseFiles(tmp.Dir + tmp.Mypage)
 	if err != nil {
