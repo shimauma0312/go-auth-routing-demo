@@ -26,7 +26,7 @@ func (app *App) NewRouter() *http.ServeMux {
 	mux.HandleFunc("/signin", app.signinHandler)
 	mux.HandleFunc("/signgout", app.signoutHandler)
 	mux.HandleFunc("/signup", app.signupHandler)
-	mux.HandleFunc("/Mypage", app.mypageHandler)
+	mux.HandleFunc("/mypage", app.mypageHandler)
 
 	return mux
 }

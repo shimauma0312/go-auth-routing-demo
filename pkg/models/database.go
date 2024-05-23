@@ -24,7 +24,13 @@ func ConnectDB() (*Database, error) {
 		},
 	)
 
-	gormDB, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{
+	// 環境変数からセッションキーを取得する
+	dbname := os.Getenv("DATABASE_NAME")
+	if dbname == "" {
+		log.Fatal("SESSION_KEY is required")
+	}
+
+	gormDB, err := gorm.Open(sqlite.Open(dbname), &gorm.Config{
 		Logger: newLogger,
 	})
 	if err != nil {

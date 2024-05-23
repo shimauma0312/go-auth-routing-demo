@@ -2,6 +2,7 @@ package main
 
 import (
 	controller "go-auth-demo/pkg/controllers"
+	"go-auth-demo/pkg/models"
 	"log"
 	"net/http"
 	"os"
@@ -33,9 +34,17 @@ func main() {
 		Secure:   true,     // HTTPS上でのみクッキーを送信する
 	}
 
+	// データベースに接続する
+	db, err := models.ConnectDB()
+	if err != nil {
+		log.Fatalf("Failed to connect to database: %v", err)
+	}
+	defer db.Close()
+
 	// 新しいアプリケーションを作成する
 	app := &controller.App{
 		Store: store,
+		DB:    db,
 	}
 
 	// アプリケーションのルーターを作成する
