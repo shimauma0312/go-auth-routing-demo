@@ -1,9 +1,5 @@
 package models
 
-import (
-	"gorm.io/gorm"
-)
-
 type User struct {
 	UserID   string `gorm:"column:user_id;primaryKey"`
 	Password string
@@ -14,13 +10,14 @@ type Level struct {
 	Level  int
 }
 
-func CreateUser(db *gorm.DB, user *User) error {
-	result := db.Create(user)
+func (db *Database) CreateUser(userId string, password string) error {
+	user := User{UserID: userId, Password: password}
+	result := db.Gorm.Create(user)
 	return result.Error
 }
 
-func GetUser(db *gorm.DB, userId string) (User, error) {
-	var user User
-	result := db.First(&user, "user_id = ?", userId)
-	return user, result.Error
+func (db *Database) GetUser(userId string) (string, error) {
+	user := &User{}
+	result := db.Gorm.First(user, "user_id = ?", userId)
+	return user.UserID, result.Error
 }
