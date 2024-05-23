@@ -3,11 +3,14 @@ package controllers
 import (
 	"net/http"
 
+	"go-auth-demo/pkg/models"
+
 	"github.com/gorilla/sessions"
 )
 
 type App struct {
 	Store *sessions.CookieStore
+	DB    *models.Database
 }
 
 func (app *App) Get(r *http.Request, name string) (*sessions.Session, error) {
@@ -26,4 +29,9 @@ func (app *App) NewRouter() *http.ServeMux {
 	mux.HandleFunc("/Mypage", app.mypageHandler)
 
 	return mux
+}
+
+func (app *App) IsUserLoggedIn(r *http.Request) bool {
+	sessions, _ := app.Get(r, "user")
+	return sessions.Values["id"] != ""
 }
