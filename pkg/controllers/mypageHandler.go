@@ -11,18 +11,18 @@ func (app *App) mypageHandler(w http.ResponseWriter, r *http.Request) {
 
 	data := struct {
 		IsSignIn bool
-		userId   string
+		UserId   string
 	}{
-		IsSignIn: sessions.Values["id"] != "",
-		userId:   sessions.Values["id"].(string),
+		IsSignIn: app.IsUserLoggedIn(r),
+		UserId:   sessions.Values["id"].(string),
 	}
 
-	t, err := template.ParseFiles(tmp.Dir + tmp.Home)
+	t, err := template.ParseFiles(tmp.Dir + tmp.Mypage)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	err = t.ExecuteTemplate(w, tmp.Home, data)
+	err = t.ExecuteTemplate(w, tmp.Mypage, data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
