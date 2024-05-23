@@ -21,15 +21,30 @@
             padding: 5px 10px;
             margin: 0 5px;
         }
+
+        @keyframes rainbow {
+        0% {background-position: left;}
+        100% {background-position: right;}
+        }
+
+        #username {
+        background: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet);
+        background-clip: text;
+        color: transparent;
+        animation: rainbow 2s linear infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body>
-    <div class="welcome">
-        <h1>戦いの準備はできてるか？{{.UserId}}！！</h1>
-    </div>
     <div class="header">
         <button onclick="goHome()">ホームに戻る</button>
         <button onclick="signOut()">サインアウト</button>
+    </div>
+
+    <div class="welcome">
+        <h1 class="welcome-message">戦いの準備はできてるか？<span id="username">{{.UserId}}</span>！！</h1>
     </div>
 
     <script>
