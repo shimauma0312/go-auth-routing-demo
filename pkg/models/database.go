@@ -11,7 +11,7 @@ import (
 )
 
 type Database struct {
-	DB *gorm.DB
+	Gorm *gorm.DB
 }
 
 func ConnectDB() (*Database, error) {
@@ -31,11 +31,11 @@ func ConnectDB() (*Database, error) {
 		return nil, err
 	}
 	gormDB.AutoMigrate(&User{})
-	return &Database{DB: gormDB}, nil
+	return &Database{Gorm: gormDB}, nil
 }
 
 func (db *Database) Close() error {
-	sqlDB, err := db.DB.DB()
+	sqlDB, err := db.Gorm.DB()
 	if err != nil {
 		return err
 	}
