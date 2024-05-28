@@ -2,44 +2,9 @@
 <html>
 <head>
     <title>My Page</title>
-    <style>
-        @keyframes slide-in {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
-        .welcome {
-            animation: slide-in 1s ease-in-out;
-            text-align: center; /* テキストを中央に配置 */
-        }
-        .welcome-message {
-            font-size: 5em; /* フォントサイズを大きく */
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #f1f1f1;
-        }
-        .header button {
-            padding: 5px 10px;
-            margin: 0 5px;
-        }
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/mypage.css"></head>
 
-        @keyframes rainbow {
-        0% {background-position: left;}
-        100% {background-position: right;}
-        }
-
-        #username {
-        background: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet);
-        background-clip: text;
-        color: transparent;
-        animation: rainbow 2s linear infinite;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        }
-    </style>
 </head>
 <body>
     <div class="header">

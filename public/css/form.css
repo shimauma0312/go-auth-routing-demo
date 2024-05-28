@@ -1,0 +1,41 @@
+
+
+main {
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+main {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button[type="submit"],
+button[type="button"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

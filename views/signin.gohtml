@@ -2,75 +2,25 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"></head>
+    <link rel="stylesheet" type="text/css" href="/css/form.css"></head>
+
 <body>
-    <h1>Login</h1>
-    <form action="/signin" method="POST">
-        <label for="username">ユーザーID:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">パスワード:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="送信">
-    </form>
-    <a href="/">ホームに戻る</a><br><br>
-    <a href="/signup">アカウントがない？サインアップ</a>
+    <header>
+        <button onclick="location.href = '/home';">Home</button>
+    </header>
+    <main>
+        <h1>Login</h1>
+        <form action="/signin" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/">ホームに戻る</a><br><br>
+        <a href="/signup">アカウントがない？サインアップ</a>
+    </main>
+
 </body>
 </html>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-    }
-
-    header {
-        background-color: #333;
-        padding: 10px;
-        color: #fff;
-    }
-
-    header button {
-        background-color: #333;
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        margin-right: 10px;
-        cursor: pointer;
-    }
-
-    main {
-        margin: 20px;
-    }
-
-    h1 {
-        color: #333;
-    }
-
-    form {
-        margin-top: 20px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-        color: #333;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-        width: 200px;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-    }
-
-    button[type="submit"],
-    button[type="button"] {
-        background-color: #333;
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        cursor: pointer;
-    }
-</style>
