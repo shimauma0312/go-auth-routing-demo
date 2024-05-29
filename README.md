@@ -8,43 +8,43 @@ goでのユーザー認証とルーティング設定を把握しておくため
 
 # ディレクトリ構造
 
-.
-├── .env
-├── .gitignore
-├── cmd/
-│ └── web/
-│ └── main.go
-├── constants/
-│ └── constants.go
-├── go.mod
-├── go.sum
-├── pkg/
-│ ├── controllers/
-│ │ ├── homeHandler.go
-│ │ ├── mypageHandler.go
-│ │ ├── router.go
-│ │ ├── signinHandler.go
-│ │ ├── signoutHandler.go
-│ │ └── signupHandler.go
-│ └── models/
-│ ├── database.go
-│ └── userRepository.go
-├── public/
-│ ├── css/
-│ │ ├── form.css
-│ │ ├── mypage.css
-│ │ └── style.css
-│ ├── img/
-│ └── js/
-├── README.md
-└── views/
-├── battle.gohtml
-├── home.gohtml
-├── layout.gohtml
-├── mypage.gohtml
-├── README.md
-├── signin.gohtml
-└── signup.gohtml
+    .
+    ├── .env
+    ├── .gitignore
+    ├── cmd/
+    │   └── web/
+    │       └── main.go
+    ├── constants/
+    │   └── constants.go
+    ├── go.mod
+    ├── go.sum
+    ├── pkg/
+    │   ├── controllers/
+    │   │   ├── homeHandler.go
+    │   │   ├── mypageHandler.go
+    │   │   ├── router.go
+    │   │   ├── signinHandler.go
+    │   │   ├── signoutHandler.go
+    │   │   └── signupHandler.go
+    │   └── models/
+    │       ├── database.go
+    │       └── userRepository.go
+    ├── public/
+    │   ├── css/
+    │   │   ├── form.css
+    │   │   ├── mypage.css
+    │   │   └── style.css
+    │   ├── img/
+    │   └── js/
+    ├── README.md
+    └── views/
+        ├── battle.gohtml
+        ├── home.gohtml
+        ├── layout.gohtml
+        ├── mypage.gohtml
+        ├── README.md
+        ├── signin.gohtml
+        └── signup.gohtml
 
 - `.env` : 環境変数を設定するファイル
 - `cmd/web/main.go` : アプリケーションのエントリーポイント
