@@ -1,27 +1,27 @@
 package controllers
 
 import (
+	"fmt"
 	tmp "go-auth-demo/constants"
 	"net/http"
 	"text/template"
 )
 
 func (app *App) homeHandler(w http.ResponseWriter, r *http.Request) {
-	sessions, _ := app.Get(r, "user")
-
+	fmt.Println("aaa   :", app.IsUserLoggedIn(r))
 	data := struct {
 		IsSignIn bool
 	}{
-		IsSignIn: sessions.Values["id"] != "",
+		IsSignIn: app.IsUserLoggedIn(r),
 	}
 
-	t, err := template.ParseFiles(tmp.Dir + tmp.Home)
+	t, err := template.ParseFiles(tmp.Layout, tmp.Home)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	err = t.ExecuteTemplate(w, tmp.Home, data)
+	err = t.Execute(w, data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

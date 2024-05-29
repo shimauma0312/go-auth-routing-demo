@@ -5,8 +5,9 @@ const (
 )
 
 var (
-	Home   = "index.gohtml"
-	Signin = "signin.gohtml"
-	Signup = "signup.gohtml"
-	Mypage = "mypage.gohtml"
+	Layout = Dir + "layout.gohtml"
+	Home   = Dir + "home.gohtml"
+	Signin = Dir + "signin.gohtml"
+	Signup = Dir + "signup.gohtml"
+	Mypage = Dir + "mypage.gohtml"
 )

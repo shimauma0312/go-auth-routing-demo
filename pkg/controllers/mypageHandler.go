@@ -21,12 +21,12 @@ func (app *App) mypageHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	t, err := template.ParseFiles(tmp.Dir + tmp.Mypage)
+	t, err := template.ParseFiles(tmp.Layout, tmp.Mypage)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	err = t.ExecuteTemplate(w, tmp.Mypage, data)
+	err = t.Execute(w, data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

@@ -24,7 +24,7 @@ func (app *App) NewRouter() *http.ServeMux {
 	mux.HandleFunc("/", app.homeHandler)
 	mux.HandleFunc("/home", app.homeHandler)
 	mux.HandleFunc("/signin", app.signinHandler)
-	mux.HandleFunc("/signgout", app.signoutHandler)
+	mux.HandleFunc("/signout", app.signoutHandler)
 	mux.HandleFunc("/signup", app.signupHandler)
 	mux.HandleFunc("/mypage", app.mypageHandler)
 
@@ -33,5 +33,5 @@ func (app *App) NewRouter() *http.ServeMux {
 
 func (app *App) IsUserLoggedIn(r *http.Request) bool {
 	sessions, _ := app.Get(r, "user")
-	return sessions.Values["id"] != ""
+	return sessions.Values["id"] != "" && sessions.Values["id"] != nil
 }

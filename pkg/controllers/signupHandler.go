@@ -11,14 +11,17 @@ func (app *App) signupHandler(w http.ResponseWriter, r *http.Request) {
 	if app.DB == nil {
 		log.Fatal("Database instance is not initialized")
 	}
+	if app.IsUserLoggedIn(r) {
+		http.Redirect(w, r, "/home", http.StatusFound)
+	}
 	if r.Method == "GET" {
-		t, err := template.ParseFiles(tmp.Dir + tmp.Signup)
+		t, err := template.ParseFiles(tmp.Layout, tmp.Signup)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		err = t.ExecuteTemplate(w, tmp.Signup, nil)
+		err = t.Execute(w, nil)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
@@ -32,5 +35,7 @@ func (app *App) signupHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		http.Redirect(w, r, "/signin", http.StatusFound)
+	} else {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 	}
 }

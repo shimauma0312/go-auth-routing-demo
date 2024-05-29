@@ -10,20 +10,21 @@ import (
 func (app *App) signinHandler(w http.ResponseWriter, r *http.Request) {
 	// GETリクエストの場合、サインインページを表示
 	if r.Method == "GET" {
+		if app.IsUserLoggedIn(r) {
+			http.Redirect(w, r, "/home", http.StatusFound)
+		}
 		// サインインページのテンプレートを読み込み
-		t, err := template.ParseFiles(tmp.Dir + tmp.Signin)
+		t, err := template.ParseFiles(tmp.Layout, tmp.Signin)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		// テンプレートを実行し、結果をレスポンスに書き出し。
-		err = t.ExecuteTemplate(w, tmp.Signin, nil)
+		err = t.Execute(w, nil)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
-	}
-	// POSTリクエストの場合、サインイン処理
-	if r.Method == "POST" {
+	} else if r.Method == "POST" {
 		// リクエストからフォームデータを解析
 		r.ParseForm()
 		// フォームからユーザー名とパスワードを取得
@@ -43,5 +44,7 @@ func (app *App) signinHandler(w http.ResponseWriter, r *http.Request) {
 			session.Save(r, w)
 			http.Redirect(w, r, "/mypage", http.StatusFound)
 		}
+	} else {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 	}
 }
