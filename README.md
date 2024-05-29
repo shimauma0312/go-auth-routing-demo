@@ -5,8 +5,45 @@ goでのユーザー認証とルーティング設定を把握しておくため
 
 ![Gopher](https://www.clipartmax.com/png/middle/276-2767748_golang-gopher-jpg.png "Gopher")
 
+## Setup and Installation
 
-# ディレクトリ構造
+1. Clone the repository.
+
+    ```sh
+    git clone <repository URL>
+    ```
+
+2. Navigate to the repository directory.
+
+    ```sh
+    cd <repository directory>
+    ```
+
+3. Install Go dependencies.
+
+    ```sh
+    go mod download
+    ```
+
+4. Create a `.env` file with the necessary environment variables.
+
+    ```sh
+    echo "SESSION_KEY=<your session key>" > .env
+    echo "DATABASE_NAME=<your database name>" >> .env
+    ```
+
+5. Build the application.
+
+    ```sh
+    go build -o app ./cmd/web
+    ```
+
+6. Run the application.
+
+    ```sh
+    ./app
+    ```
+# Directory Structure
 
     .
     ├── .env
