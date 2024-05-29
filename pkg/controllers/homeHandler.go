@@ -1,14 +1,12 @@
 package controllers
 
 import (
-	"fmt"
 	tmp "go-auth-demo/constants"
 	"net/http"
 	"text/template"
 )
 
 func (app *App) homeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("aaa   :", app.IsUserLoggedIn(r))
 	data := struct {
 		IsSignIn bool
 	}{
