@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/mypage.css">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+
+</head>
+<body>
+    <header>
+    {{ if .IsSignIn }}
+        <a href="/home">home</a>
+        <a href="/mypage">mypage</a>
+        <a href="/signout">signout</a>
+    {{ else }}
+        <a href="/signin">signin</a>
+    {{ end }}
+    </header>
+    <main>
+    {{ template "main" .}}
+    </main>
+</body>
+</html>

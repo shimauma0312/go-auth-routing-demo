@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Page</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/mypage.css"></head>
-
-</head>
-<body>
-    <div class="header">
-        <button><a href="/home">ホームに戻る</a></button>
-        <button><a href="/signout">サインアウト</a></button>
-    </div>
-
+{{ define "main" }}
+<main>
     <div class="welcome">
-        <h1 class="welcome-message">戦いの準備はできてるか？<span id="username">{{.UserId}}</span>！！</h1>
+            <h1 class="welcome-message">戦いの準備はできてるか？<span id="username">{{.UserId}}</span>！！</h1>
     </div>
-
-    <script>
-        function goHome() {
-            // Add your logic to navigate to the home screen
-        }
-
-        function signOut() {
-            // Add your logic to sign out the user
-        }
-    </script>
-</body>
-</html>
+</main>
+{{ end }}

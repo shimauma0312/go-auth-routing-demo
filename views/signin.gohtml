@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css"></head>
-    <link rel="stylesheet" type="text/css" href="/css/form.css"></head>
-
-<body>
-    <header>
-        <button onclick="location.href = '/home';">Home</button>
-    </header>
+{{ define "main" }}
     <main>
         <h1>Login</h1>
         <form action="/signin" method="POST">
@@ -21,6 +11,4 @@
         <a href="/">ホームに戻る</a><br><br>
         <a href="/signup">アカウントがない？サインアップ</a>
     </main>
-
-</body>
-</html>
+{{ end }}
